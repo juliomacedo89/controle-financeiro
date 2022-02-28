@@ -1,8 +1,8 @@
-# controle-financeiro
+# WEB APP para controle financeiro
 
-Projeto em Desenvolvimento! (Previsão de término em 03/2022)
+⏳ Projeto em Desenvolvimento! (Previsão de término em 03/2022)
 
-WEB APP para controle financeiro, utilizando:
+🚀 # Tecnologias utilizadas:
     - React Js,
     - Typescript,
     - Styled Components,
