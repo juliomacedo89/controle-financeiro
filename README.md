@@ -6,4 +6,4 @@
     React Js,
     Typescript,
     Styled Components,
-    Mirage Js (simular consumo de API dentro da própria app).
+    Mirage Js.
