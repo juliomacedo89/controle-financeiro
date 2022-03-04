@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/controle-financeiro/static/js/main.90f94529.js",
+    "static/media/logo.svg": "/controle-financeiro/static/media/logo.614d71d1db9fdf3ca2355f05ed3b0142.svg",
+    "index.html": "/controle-financeiro/index.html",
+    "static/media/total.svg": "/controle-financeiro/static/media/total.e90c2d1e4d0cdd036cc577afd9f496eb.svg",
+    "static/media/outcome.svg": "/controle-financeiro/static/media/outcome.6eb96d3079777422e5bd5deaa688a46e.svg",
+    "static/media/income.svg": "/controle-financeiro/static/media/income.d58effe2f7ca5d17f64c8350e5fa2fe2.svg",
+    "static/media/close.svg": "/controle-financeiro/static/media/close.f62862c6571367515ce17c7b4e77a1fc.svg",
+    "main.90f94529.js.map": "/controle-financeiro/static/js/main.90f94529.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.90f94529.js"
+  ]
+}
