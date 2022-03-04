@@ -1,11 +1,15 @@
 import Modal from 'react-modal'
+import { FormEvent, useState } from 'react' //FormEvent é nativo do React
+
+
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import closeImg from '../../assets/close.svg'
-import { FormEvent, useState } from 'react' //FormEvent é netivo do React
+
 
 import { Container, RadioBox, TransactionTypeContainer } from './styles'
-import { api } from '../../services/api'
+import { useTransactions } from '../../hooks/useTransactions'
+
 
 
 interface NewTransactionModalProps{
@@ -14,25 +18,34 @@ interface NewTransactionModalProps{
 }
 
 export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModalProps) {
+  //estados vindos do contexto para serem utilizados
+  const { createTransaction} = useTransactions() //hook criado
 
   //Estados para guardar a informação de qual botão do modal o user cliclou (entrada(deposit) ou saída(withdraw))
   const [type, setType] = useState('deposit')
 
   //Estados para armazenar o título, valor e categoria do form
   const [title, setTitle] = useState('')
-  const [value, setValue] = useState(0)
+  const [amount, setAmount] = useState(0)
   const [category, setCategory] = useState('')
 
-  function handleCreateNewTransaction(event: FormEvent) { 
+  async function handleCreateNewTransaction(event: FormEvent) { 
     event.preventDefault()
-    const data ={
-      title, 
-      value, 
-      category, 
-      type
-    }
-    api.post('/transactions', data)
 
+    await createTransaction({  //await aqui serve para que o modal (onRequestClose) não feche antes do createTransaction ser criado
+      title,
+      amount,
+      category, 
+      type,
+    })
+    
+    //reseta os valores do modal quando ele for fechado ou cadastrado
+    setTitle('')
+    setAmount(0)
+    setCategory('')
+    setType('')
+    // para fechar o modal 
+    onRequestClose()
   }
 
   return(
@@ -64,8 +77,8 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModal
         <input 
           type="number" 
           placeholder="Valor"
-          value={value}
-          onChange={(event)=> setValue(Number(event.target.value))}
+          value={amount}
+          onChange={(event)=> setAmount(Number(event.target.value))}
         />
 
         <TransactionTypeContainer>
