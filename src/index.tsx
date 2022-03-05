@@ -5,7 +5,7 @@ import { App } from './App';
 
 createServer({
 
-  //Para criar relação entre as rotas post e get 
+  //Para criar relação entre as rotas post e get da API
   models: {
     transaction: Model, //model é um módulo nativo do mirage e precisa ser importado
   },
